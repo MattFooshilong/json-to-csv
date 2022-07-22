@@ -3,7 +3,7 @@
 1) npm install
 2) node json2csv.js
 3) node csv2json.js
-4) put your translation files in their folders like: en/translation.json, cn/translation.json, my/translation.json
+4) put your translation files in their folders like: en/translation.json, cn/translation.json, my/translation.json before running json2csv.js
 
 Using json2csv.js
 1) Each child key in a .json file must be unique for this to work (should already be)
