@@ -5,10 +5,12 @@
 3) node csv2json.js
 4) put your translation files in their folders like: en/translation.json, cn/translation.json, my/translation.json
 
-Using toCSV.js
+Using json2csv.js
 1) Each child key in a .json file must be unique for this to work (should already be)
 2) Json to csv: Best usage is to make sure all the keys in the english .json file are in other files as well.
-3) Csv to json: Make sure translated words are not blank before translating back to json
+
+Using csv2json.js
+1) Csv to json: Make sure translated words are not blank before translating back to json
 
 Notes: 
 - The translation.json file in the en folder is the base file, 
