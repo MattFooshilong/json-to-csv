@@ -1,4 +1,7 @@
 {
   "choose_lng": "Pilih bahasa",
-  "change_lng": "Tukar bahasa"
+  "change_lng": "Tukar bahasa",
+  "insert_update_job": {
+    "cho_employment_type": "Pilih jenis pekerjaan"
+  }
 }

@@ -1,4 +1,7 @@
 {
   "choose_lng": "Choose a language",
-  "change_lng": "Change language"
+  "change_lng": "Change language",
+  "insert_update_job": {
+    "cho_employment_type": "Choose employment type(s)"
+  }
 }
