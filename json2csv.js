@@ -43,28 +43,25 @@ const inputMalay = fs.readFileSync('./my/translation.json')
 const parsedInputMalay = JSON.parse(inputMalay)
 const flattenedMyObj = flattenObj(parsedInputMalay)
 
-function checkMissingKeys(engFile, chiFile, MalFile){
+function checkMissingKeys(engFile, chiFile, malFile){
 	/// this function checks if a key from the english file is missing in the chinese or malay file
 	// treat english as the base file
-	let testChi
-	let testMal
+	let testChi = true
+	let testMal = true
 	// check english and chinese files
 	for(const key in engFile){
-		if(Object.prototype.hasOwnProperty.call(chiFile, key)){
-			testChi = true
-		}else{
+		if(!Object.prototype.hasOwnProperty.call(chiFile, key)){
 			console.log('Error: missing key in chinese file', key)
 			testChi = false
+			break;
 		}
 	}
 	// check english and malay files
 	for(const key in engFile){
-		if(Object.prototype.hasOwnProperty.call(MalFile,key)){
-			testMal = true
-		}
-		else{
+		if(!Object.prototype.hasOwnProperty.call(malFile,key)){
 			console.log('Error: missing key in malay file', key)
 			testMal = false
+			break;
 		}
 	}
 	if(testMal && testChi) return true
@@ -72,12 +69,9 @@ function checkMissingKeys(engFile, chiFile, MalFile){
 }
 
 function toCSV(objEnglish, objChinese, objMalay){
-	// 1) Each flattened key in json must be unique for this to work
-	// 2) English file is the base file, that means if a key value pair is in the chinese/malay file but not in the english file it will be left out (most likely not used anyway)
-
 	const check = checkMissingKeys(objEnglish, objChinese, objMalay)
 	if(!check){
-		return 'Please update missing key(s) value(s) before continuing'
+		return false
 	}else{
 		let output = []
 		for(const key in objEnglish){
@@ -94,10 +88,13 @@ function toCSV(objEnglish, objChinese, objMalay){
 }
 const toCSVArr = toCSV(flattenedEnObj, flattenedCnObj, flattenedMyObj)
 try{
-	csvWriter.writeRecords(toCSVArr)       // returns a promise
+	if(!toCSVArr) console.log('Please update missing key(s) value(s) before continuing')
+	else{
+		csvWriter.writeRecords(toCSVArr)       // returns a promise
 		.then(() => {
 			console.log('...Done')
 		})
+	}
 }catch(error){
 	console.log(error)
 }
