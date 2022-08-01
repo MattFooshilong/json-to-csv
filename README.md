@@ -1,7 +1,7 @@
 # json-csv-json-translation
-# Works for typescript
+
 1) npm install
-2) put your translation files in their folders like: en/translation.json, cn/translation.json, my/translation.json before running json2csv.js
+2) put your translation files in their folders like so: en/translation.json, cn/translation.json, my/translation.json before running json2csv.js
 3) node json2csv.js
 4) node csv2json.js
 
