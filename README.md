@@ -1,5 +1,9 @@
 # json-csv-json-translation
+This script translate your json files to csv.
+It is for translation purposes. The idea is to get the json file into a csv format so that non-tech savy translators can help translate the words. 
+Translation module is from i18next
 
+How to use
 1) npm install
 2) put your translation files in their folders like so: en/translation.json, cn/translation.json, my/translation.json before running json2csv.js
 3) node json2csv.js
